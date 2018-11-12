@@ -23,6 +23,9 @@ namespace QuanLyKho.ViewModel
     {
         private readonly Predicate<T> _canExecute;
         private readonly Action<T> _execute;
+        private readonly Action<T> _execute1;
+        private readonly Action<T> _execute1;
+
 
         public RelayCommand(Predicate<T> canExecute, Action<T> execute)
         {
