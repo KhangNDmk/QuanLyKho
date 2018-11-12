@@ -48,6 +48,8 @@ namespace QuanLyKho.ViewModel
         {
             _execute((T)parameter);
         }
+        /* chỉ là test git thôi*/
+
 
         public event EventHandler CanExecuteChanged
         {
