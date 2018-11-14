@@ -5,35 +5,60 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QuanLyKho.mkControl"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              
              Name="ucControlBar"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="500">
-    <Grid>
+
+
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseLeftButtonDown" >
+            <i:InvokeCommandAction  Command="{Binding MouseMoveWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+
+
+    <Grid >
         <materialDesign:ColorZone Mode="PrimaryDark" >
             <DockPanel>
 
-                <StackPanel DockPanel.Dock="Right" Background="Transparent" Orientation="Horizontal">
-                    <Button ToolTip="Thu nhỏ"
-                                ToolBar.OverflowMode="AsNeeded">
-                        <materialDesign:PackIcon Kind="WindowMinimize" />
-                    </Button>
-                    <Button ToolTip="Toàn"
-                                ToolBar.OverflowMode="AsNeeded">
-                        <materialDesign:PackIcon Kind="WindowMaximize" />
-                    </Button>
-                    <Button ToolTip="Đóng" Command="{Binding CloseWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}"
-                                ToolBar.OverflowMode="AsNeeded">
-                        <materialDesign:PackIcon Kind="WindowClose" />
-                    </Button>
-                </StackPanel>
+                <StackPanel DockPanel.Dock="Right" Background="Transparent" 
+                            Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Width" Value="40"></Setter>
+                            <Setter Property="Background" Value="Transparent"></Setter>
+                            <Setter Property="BorderThickness" Value="0"></Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    
+                        <Button ToolTip="Thu nhỏ" ToolBar.OverflowMode="AsNeeded"
+                            Command="{Binding MinimizedWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}">
+                            <materialDesign:PackIcon Kind="WindowMinimize" />
+                        </Button>
 
+                        <Button 
+                            ToolTip="Mở rộng" Command="{Binding MaximizedWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            ToolBar.OverflowMode="AsNeeded">
+                            <materialDesign:PackIcon Kind="WindowMaximize" />
+                        </Button>
+
+                        <Button ToolTip="Đóng" Command="{Binding CloseWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}" >
+                            <materialDesign:PackIcon Kind="WindowClose" />
+                        </Button>
+       
+
+                </StackPanel>
 
                 <StackPanel  Orientation="Horizontal" DockPanel.Dock="Left">
                     <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
-                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0">
-                         Material Design In XAML Toolkit
+                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0"
+                               Text="{Binding Tag, ElementName=ucControlBar}">
                     </TextBlock>
                 </StackPanel>
             </DockPanel>

@@ -28,5 +28,6 @@ namespace QuanLyKho.mkControl
             viewModel = new ControlBarViewModel(); 
             this.DataContext = viewModel;
         }
+
     }
 }
