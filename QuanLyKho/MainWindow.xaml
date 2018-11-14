@@ -5,13 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyKho"
         mc:Ignorable="d"
+        
+        xmlns:uc="clr-namespace:QuanLyKho.mkControl"
+        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        
-        
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
         DataContext="{StaticResource MainVM}"
+        
+        ResizeMode="NoResize"
+        WindowStyle="None"
         Title="MainWindow" Height="450" Width="800">
     
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBar></uc:ControlBar>
+        </Grid>
         
     </Grid>
 </Window>
