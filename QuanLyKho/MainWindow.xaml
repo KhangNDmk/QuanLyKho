@@ -5,6 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyKho"
         mc:Ignorable="d"
+        
+        
+
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:uc="clr-namespace:QuanLyKho.mkControl"
         
@@ -19,8 +22,10 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Name="mainWindow"        
-        Title="MainWindow" Height="480" Width="640">
+        Title="MainWindow" Height="540" Width="700">
 
+    
+    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded" >
             <i:InvokeCommandAction  Command="{Binding LoadedWindowCommand}"/>
@@ -129,8 +134,7 @@
                     </Button>
 
                     <Button ToolTip="Đơn vị" ToolBar.OverflowMode="AsNeeded"
-                            Command="{Binding MinimizedWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}">
+                            Command="{Binding UnitCommand}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -152,8 +156,7 @@
                     </Button>
 
                     <Button ToolTip="Nhà cung cấp" ToolBar.OverflowMode="AsNeeded"
-                            Command="{Binding MinimizedWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}">
+                            Command="{Binding SuplierCommand}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -175,8 +178,7 @@
                     </Button>
 
                     <Button ToolTip="Khách hàng" ToolBar.OverflowMode="AsNeeded"
-                            Command="{Binding MinimizedWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}">
+                            Command="{Binding CustomerCommand}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -190,6 +192,29 @@
                             <!--icon -->
                             <Grid Grid.Row="1">
                                 <materialDesign:PackIcon Kind="HumanMaleFemale"
+                                                         Width="30" Height="30"
+                                                         VerticalAlignment="Center" 
+                                                         HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+                    </Button>
+
+                    <Button ToolTip="Khách hàng" ToolBar.OverflowMode="AsNeeded"
+                            Command="{Binding MinimizedWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock  VerticalAlignment="Top">
+                                    User
+                                </TextBlock>
+                            </Grid>
+                            <!--icon -->
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Kind="AccountKey"
                                                          Width="30" Height="30"
                                                          VerticalAlignment="Center" 
                                                          HorizontalAlignment="Center"/>
